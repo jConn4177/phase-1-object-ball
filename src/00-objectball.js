@@ -115,3 +115,47 @@ const gameObject = () => {
   };
   return teams;
 };
+
+//* Callback Functions:
+
+const numPointsScored = (playerName) => {
+  let gameObj = gameObject();
+  for (let gameKey in gameObj) {
+    let teamObj = gameObj[gameKey];
+    for (let teamKey in teamObj) {
+      let teamInfoObj = teamObj[teamKey];
+      for (let playerStatsKey in teamInfoObj) {
+        let playerObj = teamInfoObj[playerStatsKey];
+        if (playerStatsKey === playerName) {
+          for (let playerStats in playerObj) {
+            if (playerStats === "points") {
+              let stats = playerObj[playerStats];
+              return stats;
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+const shoeSize = (playerName) => {
+  let gameObj = gameObject();
+  for (let gameKey in gameObj) {
+    let teamObj = gameObj[gameKey];
+    for (let teamKey in teamObj) {
+      let teamInfoObj = teamObj[teamKey];
+      for (let playerStatsKey in teamInfoObj) {
+        let playerObj = teamInfoObj[playerStatsKey];
+        if (playerStatsKey === playerName) {
+          for (let playerStats in playerObj) {
+            if (playerStats === "shoe") {
+              let stats = playerObj[playerStats];
+              return stats;
+            }
+          }
+        }
+      }
+    }
+  }
+};
