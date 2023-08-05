@@ -159,3 +159,35 @@ const shoeSize = (playerName) => {
     }
   }
 };
+
+const teamColors = (teamName) => {
+  const teams = gameObject();
+  for (const team in teams) {
+    if (teams[team].teamName === teamName) {
+      return teams[team].colors.split(", ");
+    }
+  }
+  return null;
+};
+
+const teamNames = () => {
+  const teams = gameObject();
+  return Object.values(teams).map((team) => team.teamName);
+};
+
+const playerNumbers = (teamName) => {
+  const teams = gameObject();
+  for (const team in teams) {
+    if (teams[team].teamName === teamName) {
+      const players = teams[team].players;
+      return Object.values(players).map((player) => parseInt(player.number));
+    }
+  }
+  return null;
+};
+
+console.log(numPointsScored("Alan Anderson"));
+console.log(shoeSize("Brook Lopez"));
+console.log(teamColors("Charlotte Hornets"));
+console.log(teamNames());
+console.log(playerNumbers("Brooklyn Nets"));
